@@ -1,5 +1,4 @@
 import { auth } from "@clerk/nextjs";
-import prismadb from "@/lib/prismadb";
 import { MAX_FREE_COUNTS } from "@/constants";
 import { PrismaClient } from "@prisma/client";
 

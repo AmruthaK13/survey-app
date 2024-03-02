@@ -1,5 +1,4 @@
 import { auth } from "@clerk/nextjs";
-import prismadb from "@/lib/prismadb";
 import { PrismaClient } from "@prisma/client";
 
 const DAY_IN_MS = 86_400_000;
