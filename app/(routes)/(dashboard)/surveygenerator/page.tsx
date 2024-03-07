@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import { Loader } from "@/components/Loader";
 import { Empty } from "@/components/Empty";
 import { Heading } from "@/components/Heading";
+import { capabilities } from "./capabilities";
 import { formSchema } from "./constants";
 import { FormField, Form, FormItem, FormControl } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -20,7 +21,9 @@ import { cn } from "@/lib/utils";
 import { BotAvatar } from "@/components/BotAvatar";
 import { UserAvatar } from "@/components/UserAvatar";
 import { useProModal } from "@/hooks/useProModal";
+
 import toast from "react-hot-toast";
+import { Card } from "@/components/ui/card";
 
 const ConverSationPage = () => {
   const proModal = useProModal();
@@ -60,13 +63,49 @@ const ConverSationPage = () => {
   };
   return (
     <div>
-      <Heading
+      <div className="px-4 lg:px-8 flex items-start gap-x-3 mb-8 flex-col">
+        <div className="flex flex-row mb-5">
+          <div className={cn("p-2 w-fit rounded-md bg-violet-500/10 mr-3")}>
+            <MessageSquare className={cn("w-10 h-10 text-violet-500")} />
+          </div>
+          <div>
+            <h2 className="text-3xl font-bold">SciSurvey</h2>
+            <p className="text-sm text-muted-foreground">
+              Accelerate your research with AI
+            </p>
+          </div>
+          <div className="px-4 lg:px-8"></div>
+        </div>
+        <div className="grid grid-cols-2 gap-4 xl:grid-cols-4 md:text-sm md:grid-cols-3 sm:grid-cols-2 w-full max-w-7xl text-sm">
+          {capabilities.map((capability) => {
+            return (
+              <Card
+                key={capability.Heading}
+                className="p-4 border-black/5 flex items-center justify-between hover:shadow-md transition cursor-pointer"
+              >
+                <div className="flex items-center gap-x-4">
+                  <div className={cn("p-2 w-fit rounded-md bg-teal-950")}>
+                    <capability.Icon
+                      className={cn("w-8 h-8", capability.IconColor)}
+                    />
+                  </div>
+                  <div className="font-semibold text-">
+                    {capability.Description}
+                  </div>
+                </div>
+              </Card>
+            );
+          })}
+        </div>
+      </div>
+      {/* <Heading
         title="Survey Generator"
         description="Our most advanced survey generator."
         icon={MessageSquare}
         iconColor="text-violet-500"
         bgColor="bg-violet-500/10"
-      />
+      /> */}
+
       <div className="px-4 lg:px-8">
         <div>
           <Form {...form}>

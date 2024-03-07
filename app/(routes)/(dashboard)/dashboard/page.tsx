@@ -20,13 +20,13 @@ const tools = [
     href: "/surveygenerator",
   },
 
-  {
-    label: "Uploaded Documents",
-    icon: ImageIcon,
-    color: "text-pink-700",
-    bgColor: "bg-pink-700/10",
-    href: "/image",
-  },
+  // {
+  //   label: "Uploaded Documents",
+  //   icon: ImageIcon,
+  //   color: "text-pink-700",
+  //   bgColor: "bg-pink-700/10",
+  //   href: "/image",
+  // },
   // {
   //   label: "Video Generation",
   //   icon: VideoIcon,

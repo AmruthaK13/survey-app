@@ -14,3 +14,4 @@ export const Empty = ({ label }: EmptyProps) => {
     </div>
   );
 };
+   

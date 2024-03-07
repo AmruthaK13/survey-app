@@ -20,30 +20,30 @@ import {
 const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
 
 const routes = [
-  {
-    label: "Dashboard",
-    icon: LayoutDashboard,
-    href: "/dashboard",
-    color: "text-sky-500",
-  },
+  // {
+  //   label: "Dashboard",
+  //   icon: LayoutDashboard,
+  //   href: "/dashboard",
+  //   color: "text-sky-500",
+  // },
   {
     label: "Survey Generator",
     icon: MessageSquare,
     href: "/surveygenerator",
     color: "text-violet-600",
   },
-  {
-    label: "Uploaded Documents",
-    icon: ImageIcon,
-    href: "/image",
-    color: "text-pink-700",
-  },
+  // {
+  //   label: "Uploaded Documents",
+  //   icon: ImageIcon,
+  //   href: "/image",
+  //   color: "text-pink-700",
+  // },
 
-  {
-    label: "Settings",
-    icon: Settings,
-    href: "/settings",
-  },
+  // {
+  //   label: "Settings",
+  //   icon: Settings,
+  //   href: "/settings",
+  // },
 ];
 
 interface SidebarProps {
@@ -56,7 +56,7 @@ const Sidebar = ({ apiLimitCount = 0, isPro = false }: SidebarProps) => {
   return (
     <div className="space-y-4 py-4 flex flex-col h-full bg-[#111827] text-white">
       <div className="px-3 py-2 flex-1">
-        <Link href="/dashboard" className="flex items-center pl-3 mb-14">
+        <Link href="/surveygenerator" className="flex items-center pl-3 mb-14">
           <div className="relative h-8 w-8 mr-4">
             <Image fill alt="Logo" src="/lab.png" />
           </div>

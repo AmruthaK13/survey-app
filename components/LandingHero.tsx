@@ -10,17 +10,26 @@ export const LandingHero = () => {
     <div className="text-white font-bold py-36 text-center space-y-5">
       <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold">
         <h1>Unleashing the Power of AI in Scientific Surveys</h1>
-        <div className="text-transparent bg-clip-text bg-gradient-to-r from-sky-900 to-teal-300">
-          <TypewriterComponent
+        <div className="text-transparent bg-clip-text bg-gradient-to-r from-sky-900 to-teal-300 ">
+          <TypewriterComponent     
             options={{
               strings: [
-                "Unparalleled Accuracy.",
-                "Customizable Templates.",
-                "Real-Time Data Analysis.",
-                "User-Friendly Interface.",
-                "Advanced Analytics & Insights.",
+           "Defining Objectives and Clarifying Research Goals",
+
+"Optimizing Survey Design for Maximum Engagement",
+
+"Crafting Clear and Unbiased Questions",
+"Navigating Compliance and Ethics in Survey Research",
+
+"Enhancing Data Collection and Analysis Techniques",
+
+"Boosting Survey Engagement and Response Rates",
+
+"Mastering Pilot Testing and Incorporating Feedback"
+
               ],
               autoStart: true,
+            
               loop: true,
             }}
           />
@@ -30,7 +39,7 @@ export const LandingHero = () => {
         Create scientific surveys 10x faster.
       </div>
       <div>
-        <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>
+        <Link href={isSignedIn ? "/surveygenerator" : "/sign-up"}>
           <Button
             variant="premium"
             className="md:text-lg p-4 md:p-6 rounded-full font-semibold"
