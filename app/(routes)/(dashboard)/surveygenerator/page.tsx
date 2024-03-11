@@ -84,13 +84,20 @@ const ConverSationPage = () => {
                 className="p-4 border-black/5 flex items-center justify-between hover:shadow-md transition cursor-pointer"
               >
                 <div className="flex items-center gap-x-4">
-                  <div className={cn("p-2 w-fit rounded-md bg-teal-950")}>
+                  <div className={cn("p-2 w-fit rounded-md bg-[#003049]")}>
                     <capability.Icon
                       className={cn("w-8 h-8", capability.IconColor)}
                     />
                   </div>
                   <div className="font-semibold text-">
                     {capability.Description}
+                    <p className="text-slate-500 text-xs">
+                      - "I am studying the impact of sleep quality on
+                      productivity. Can you suggest some survey questions to
+                      accurately measure these variables?" <br /> - "What types
+                      of scales would be most appropriate for assessing stress
+                      levels in a workplace environment?"
+                    </p>
                   </div>
                 </div>
               </Card>
