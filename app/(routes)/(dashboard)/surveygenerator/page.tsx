@@ -65,18 +65,9 @@ const ConverSationPage = () => {
     <div>
       <div className="px-4 lg:px-8 flex items-start gap-x-3 mb-8 flex-col">
         <div className="flex flex-row mb-5">
-          <div className={cn("p-2 w-fit rounded-md bg-violet-500/10 mr-3")}>
-            <MessageSquare className={cn("w-10 h-10 text-violet-500")} />
-          </div>
-          <div>
-            <h2 className="text-3xl font-bold">SciSurvey</h2>
-            <p className="text-sm text-muted-foreground">
-              Accelerate your research with AI
-            </p>
-          </div>
           <div className="px-4 lg:px-8"></div>
         </div>
-        <div className="grid grid-cols-2 gap-4 xl:grid-cols-4 md:text-sm md:grid-cols-3 sm:grid-cols-2 w-full max-w-7xl text-sm">
+        <div className="grid grid-cols-2 gap-4 xl:grid-cols-2 md:text-sm lg:grid-cols-3 sm:grid-cols-2 w-full max-w-7xl text-sm">
           {capabilities.map((capability) => {
             return (
               <Card
@@ -91,13 +82,14 @@ const ConverSationPage = () => {
                   </div>
                   <div className="font-semibold text-">
                     {capability.Description}
-                    <p className="text-slate-500 text-xs">
-                      - "I am studying the impact of sleep quality on
-                      productivity. Can you suggest some survey questions to
-                      accurately measure these variables?" <br /> - "What types
-                      of scales would be most appropriate for assessing stress
-                      levels in a workplace environment?"
-                    </p>
+                    {capability.Examples.split("-").map((item, index) => (
+                      <p
+                        key={index}
+                        className="text-slate-500 text-xs hidden xl:flex"
+                      >
+                        {item}
+                      </p>
+                    ))}
                   </div>
                 </div>
               </Card>

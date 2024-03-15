@@ -42,8 +42,8 @@ export const FreeCounter = ({
           </div>
           <Button
             onClick={proModal.onOpen}
-            className="w-full"
-            variant="premium"
+            className="w-full "
+            variant="pastel"
           >
             Upgrade
             <Zap className="w-4 h-4 ml-2 fill-white" />

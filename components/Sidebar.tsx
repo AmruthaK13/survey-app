@@ -30,7 +30,7 @@ const routes = [
     label: "Survey Generator",
     icon: MessageSquare,
     href: "/surveygenerator",
-    color: "text-violet-600",
+    color: "text-amber-600",
   },
   // {
   //   label: "Uploaded Documents",

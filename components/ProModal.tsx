@@ -28,7 +28,7 @@ import toast from "react-hot-toast";
 
 const tools = [
   {
-    label: "Survey Generator",
+    label: "Unlimited Access",
     icon: MessageSquare,
     color: "text-violet-500",
     bgColor: "bg-violet-500/10",
@@ -39,13 +39,6 @@ const tools = [
   //   color: "text-emerald-500",
   //   bgColor: "bg-emerald-500/10",
   // },
-  {
-    label: "Document Uploads",
-    icon: ImageIcon,
-    color: "text-pink-700",
-    bgColor: "bg-pink-700/10",
-  },
-
 ];
 
 export const ProModal = () => {
@@ -53,15 +46,17 @@ export const ProModal = () => {
   const [loading, setLoading] = useState(false);
 
   const onSubscribe = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get("/api/stripe");
-      window.location.href = response.data.url;
-    } catch (error) {
-      toast.error("Something went wrong.");
-    } finally {
-      setLoading(false);
-    }
+    window.open("mailto:lkillada@mit.edu", "_blank");
+
+    // try {
+    //   setLoading(true);
+    //   const response = await axios.get("/api/stripe");
+    //   window.location.href = response.data.url;
+    // } catch (error) {
+    //   toast.error("Something went wrong.");
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
   return (
@@ -101,7 +96,7 @@ export const ProModal = () => {
             variant="premium"
             className="w-full"
           >
-            Upgrade
+            Contact Amu
             <Zap className="w-4 h-4 ml-2 fill-white" />
           </Button>
         </DialogFooter>
