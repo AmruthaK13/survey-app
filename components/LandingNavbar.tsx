@@ -16,11 +16,9 @@ const LandingNavbar = () => {
   return (
     <nav className="p-4 bg-transparent flex items-center justify-between">
       <Link href="/" className="flex items-center">
-        <div className="relative h-16 w-16 mr-4">
-          <Image fill alt="Logo" src="/lab.png" />
-        </div>
+        <div className="relative h-16 w-16 mr-4"></div>
         <h1 className={cn("text-2xl font-bold text-white", font.className)}>
-          SciSurvey
+          Survey Science
         </h1>
       </Link>
       <div className="flex items-center gap-x-2">

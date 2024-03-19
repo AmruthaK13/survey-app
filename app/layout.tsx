@@ -9,7 +9,7 @@ import { ToasterProvider } from "@/components/ToasterProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SciSurvey",
+  title: "Survey Science",
   description: "Supercharge your research with an AI powered survey generator.",
 };
 
