@@ -9,13 +9,20 @@ const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const openai = new OpenAIApi(configuration);
+// const openai = new OpenAIApi(configuration);
+
+const assistantId = process.env.ASSISTANT_ID;
+const OpenAI = require("openai");
+const openai = new OpenAI(configuration);
+
 const instructionMessage: ChatCompletionRequestMessage = {
   role: "system",
   content:
     "You are a scientific survey generator. Do not answer any questions unrelated to science.",
 };
 export async function POST(req: Request) {
+  let thread = await openai.beta.threads.create();
+
   try {
     const { userId } = auth();
     const body = await req.json();
@@ -40,15 +47,39 @@ export async function POST(req: Request) {
       return new NextResponse("API Limit Exceeded", { status: 403 });
     }
 
-    const response = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
-      messages: [instructionMessage, ...messages],
+    await openai.beta.threads.messages.create(thread.id, {
+      role: "user",
+      content: messages,
     });
+
+    const run = await openai.beta.threads.runs.create(thread.id, {
+      assistant_id: assistantId,
+    });
+
+    let runStatus = await openai.beta.threads.runs.retrieve(thread.id, run.id);
+
+    while (runStatus.status !== "completed") {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      runStatus = await openai.beta.threads.runs.retrieve(thread.id, run.id);
+    }
+
+    const messagesContent = await openai.beta.threads.messages.list(thread.id);
+
+    const lastMessageForRun = messagesContent.data
+      .filter(
+        (message: any) =>
+          message.run_id === run.id && message.role === "assistant"
+      )
+      .pop();
+    // const response = await openai.createChatCompletion({
+    //   model: "gpt-3.5-turbo",
+    //   messages: [instructionMessage, ...messages],
+    // });
     if (!isPro) {
       await increaseApiLimit();
     }
 
-    return NextResponse.json(response.data.choices[0].message);
+    return lastMessageForRun.content[0].text.value;
   } catch (error) {
     console.log("[CONVERSATION_ERROR]", error);
     return new NextResponse("Internal Server Error", { status: 500 });
